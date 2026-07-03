@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace DogsAtTheRaces
 {
-    internal class Dog
+    public class Dog
     {
+        public int StartingPosition;
+        public int RacetrackLength;
+        public PictureBox MyPictureBox = null;
+        public int Location = 0;
+        public Random Randomizer;
+
+        public bool Run()
+        {
+
+        }
+
+        public void TakeStartingPosition()
+        {
+
+        }
     }
 }
