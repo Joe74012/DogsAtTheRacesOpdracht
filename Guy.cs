@@ -6,7 +6,28 @@ using System.Threading.Tasks;
 
 namespace DogsAtTheRaces
 {
-    internal class Guy
+    public class Guy
     {
+        public string name;
+        public Bet MyBet;
+        public int Cash;
+        public RadioButton MyRadioButton;
+        public Label MyLabel;
+        public void UpdateLabels()
+        {
+
+        }
+        public void ClearBet()
+        {
+
+        }
+        public void PlaceBet()
+        {
+
+        }
+        public void Collect(int Winner)
+        {
+
+        }
     }
 }
