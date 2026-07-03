@@ -25,7 +25,8 @@ namespace DogsAtTheRaces
 
         public void TakeStartingPosition()
         {
-
+            Location = 0;
+            MyPictureBox.Left = StartingPosition;
         }
     }
 }
