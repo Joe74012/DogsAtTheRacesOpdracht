@@ -21,6 +21,10 @@ namespace DogsAtTheRaces
         {
 
         }
+        public void PlaceBet()
+        {
+
+        }
         public void Collect(int Winner)
         {
 
