@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace DogsAtTheRaces
 {
-    internal class Bet
+    public class Bet
     {
+        public int Amount;
+        public int Dog;
+        public Guy Bettor;
+
+        public string GetDescription()
+        {
+
+        }
+        public int PayOut(int Winner)
+        {
+
+        }
     }
 }
