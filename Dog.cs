@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DogsAtTheRaces
 {
@@ -11,12 +12,15 @@ namespace DogsAtTheRaces
         public int StartingPosition;
         public int RacetrackLength;
         public PictureBox MyPictureBox = null;
-        public int Location = 0;
+        public int Location = 0;    
         public Random Randomizer;
 
         public bool Run()
         {
-
+            int Number = Randomizer.Next(0, 4);
+            Location += Number;
+            MyPictureBox.Left = StartingPosition + Location;
+            return true;
         }
 
         public void TakeStartingPosition()
