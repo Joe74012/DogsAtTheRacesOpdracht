@@ -16,15 +16,22 @@ namespace DogsAtTheRaces
         public Label MyLabel;
         public void UpdateLabels()
         {
-
+            MyLabel.Text = name + " bets " + MyBet.Amount + "on dog #" + MyBet.Dog;
+            MyRadioButton.Text = name + " has " + Cash + " bucks";
         }
         public void ClearBet()
         {
-
+            MyBet.Amount = 0;
         }
-        public void PlaceBet()
+        public bool PlaceBet(int BetAmount, int DogToWin)
         {
-
+            BetAmount = MyBet.Amount;
+            if (Cash >= BetAmount) {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
         public void Collect(int Winner)
         {
