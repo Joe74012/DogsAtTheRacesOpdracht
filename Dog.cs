@@ -20,7 +20,13 @@ namespace DogsAtTheRaces
             int Number = Randomizer.Next(0, 4);
             Location += Number;
             MyPictureBox.Left = StartingPosition + Location;
-            return true;
+            if (Location == RacetrackLength)
+            {
+                return true;
+            } else 
+            {
+                return false; 
+            }
         }
 
         public void TakeStartingPosition()
