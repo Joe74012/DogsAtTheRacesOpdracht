@@ -14,7 +14,13 @@ namespace DogsAtTheRaces
 
         public string GetDescription()
         {
-
+            if (Amount == 0)
+            {
+                return Bettor.name + " hasn't placed a bet";
+            } else
+            {
+                return Bettor.name + " bets " + Amount + " on dog #" + Dog;
+            }
         }
         public int PayOut(int Winner)
         {
