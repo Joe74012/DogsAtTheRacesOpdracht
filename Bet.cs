@@ -26,7 +26,7 @@ namespace DogsAtTheRaces
         {
             if (Winner == Dog)
             {
-                return Amount *= 2;
+                return Amount * 2;
             } else
             {
                 return 0;
