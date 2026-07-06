@@ -82,7 +82,7 @@ public partial class BettingParlor : Form
             },
             MyLabel = lb_guy3BetLabel
         };
-        GuyArray[2].MyBet.Bettor = GuyArray[0];
+        GuyArray[2].MyBet.Bettor = GuyArray[2];
         GuyArray[0].UpdateLabels();
         GuyArray[1].UpdateLabels();
         GuyArray[2].UpdateLabels();
@@ -174,10 +174,31 @@ public partial class BettingParlor : Form
         {
             if (DogArray[i].Run())
             {
-                MessageBox.Show("hond nummer " + (i + 1) + " heeft gewonnen");
                 t_raceTimer.Stop();
+                MessageBox.Show("hond " + (i + 1) + " heeft gewonnen!!");
+                Reset(i + 1);
+                break;
             }
         }
+    }
+    public void Reset(int Winner)
+    {
+        Gekozen = 1;
+        HeeftGekozen1 = false;
+        HeeftGekozen2 = false;
+        HeeftGekozen3 = false;
+        for (int i = 0; i < GuyArray.Length; i++)
+        {
+            GuyArray[i].Collect(Winner);
+            GuyArray[i].UpdateLabels();
+        }
+        for (int i = 0; i < DogArray.Length; i++)
+        {
+            DogArray[i].TakeStartingPosition();
+        }
+        lb_guy1BetLabel.Text = GuyArray[0].MyBet.GetDescription();
+        lb_guy2BetLabel.Text = GuyArray[1].MyBet.GetDescription();
+        lb_guy3BetLabel.Text = GuyArray[2].MyBet.GetDescription();
     }
 
     public void rb_Guy1_CheckedChanged(object sender, EventArgs e)
