@@ -17,7 +17,7 @@ namespace DogsAtTheRaces
         public void UpdateLabels()
         {
             if (MyBet != null) {
-                MyLabel.Text = name + " bets " + MyBet.Amount + "on dog #" + MyBet.Dog;
+                MyLabel.Text = name + " bets " + MyBet.Amount + " on dog #" + MyBet.Dog;
             }
             MyRadioButton.Text = name + " has " + Cash + " bucks";
         }
