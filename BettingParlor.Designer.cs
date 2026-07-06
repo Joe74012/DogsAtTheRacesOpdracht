@@ -37,6 +37,7 @@ namespace DogsAtTheRaces
             pb_dog3 = new PictureBox();
             pb_dog4 = new PictureBox();
             gB_bettingParlor = new GroupBox();
+            numericUpDown1 = new NumericUpDown();
             bt_race = new Button();
             lb_guy3BetLabel = new Label();
             lb_guy2BetLabel = new Label();
@@ -52,15 +53,14 @@ namespace DogsAtTheRaces
             rb_Guy2 = new RadioButton();
             rb_Guy1 = new RadioButton();
             t_raceTimer = new System.Windows.Forms.Timer(components);
-            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)pb_raceTrack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_dog1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_dog2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_dog3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_dog4).BeginInit();
             gB_bettingParlor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)num_dogNumber).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)num_dogNumber).BeginInit();
             SuspendLayout();
             // 
             // pb_raceTrack
@@ -70,7 +70,7 @@ namespace DogsAtTheRaces
             pb_raceTrack.BackgroundImageLayout = ImageLayout.Stretch;
             pb_raceTrack.InitialImage = null;
             pb_raceTrack.Location = new Point(10, 10);
-            pb_raceTrack.Margin = new Padding(2, 2, 2, 2);
+            pb_raceTrack.Margin = new Padding(2);
             pb_raceTrack.Name = "pb_raceTrack";
             pb_raceTrack.Size = new Size(741, 270);
             pb_raceTrack.TabIndex = 0;
@@ -81,7 +81,7 @@ namespace DogsAtTheRaces
             pb_dog1.BackgroundImage = (Image)resources.GetObject("pb_dog1.BackgroundImage");
             pb_dog1.BackgroundImageLayout = ImageLayout.Stretch;
             pb_dog1.Location = new Point(18, 18);
-            pb_dog1.Margin = new Padding(2, 2, 2, 2);
+            pb_dog1.Margin = new Padding(2);
             pb_dog1.Name = "pb_dog1";
             pb_dog1.Size = new Size(102, 38);
             pb_dog1.TabIndex = 1;
@@ -92,7 +92,7 @@ namespace DogsAtTheRaces
             pb_dog2.BackgroundImage = (Image)resources.GetObject("pb_dog2.BackgroundImage");
             pb_dog2.BackgroundImageLayout = ImageLayout.Stretch;
             pb_dog2.Location = new Point(18, 84);
-            pb_dog2.Margin = new Padding(2, 2, 2, 2);
+            pb_dog2.Margin = new Padding(2);
             pb_dog2.Name = "pb_dog2";
             pb_dog2.Size = new Size(102, 38);
             pb_dog2.TabIndex = 2;
@@ -103,7 +103,7 @@ namespace DogsAtTheRaces
             pb_dog3.BackgroundImage = (Image)resources.GetObject("pb_dog3.BackgroundImage");
             pb_dog3.BackgroundImageLayout = ImageLayout.Stretch;
             pb_dog3.Location = new Point(18, 157);
-            pb_dog3.Margin = new Padding(2, 2, 2, 2);
+            pb_dog3.Margin = new Padding(2);
             pb_dog3.Name = "pb_dog3";
             pb_dog3.Size = new Size(102, 38);
             pb_dog3.TabIndex = 3;
@@ -114,7 +114,7 @@ namespace DogsAtTheRaces
             pb_dog4.BackgroundImage = (Image)resources.GetObject("pb_dog4.BackgroundImage");
             pb_dog4.BackgroundImageLayout = ImageLayout.Stretch;
             pb_dog4.Location = new Point(18, 230);
-            pb_dog4.Margin = new Padding(2, 2, 2, 2);
+            pb_dog4.Margin = new Padding(2);
             pb_dog4.Name = "pb_dog4";
             pb_dog4.Size = new Size(102, 38);
             pb_dog4.TabIndex = 4;
@@ -138,18 +138,29 @@ namespace DogsAtTheRaces
             gB_bettingParlor.Controls.Add(rb_Guy2);
             gB_bettingParlor.Controls.Add(rb_Guy1);
             gB_bettingParlor.Location = new Point(10, 284);
-            gB_bettingParlor.Margin = new Padding(2, 2, 2, 2);
+            gB_bettingParlor.Margin = new Padding(2);
             gB_bettingParlor.Name = "gB_bettingParlor";
-            gB_bettingParlor.Padding = new Padding(2, 2, 2, 2);
+            gB_bettingParlor.Padding = new Padding(2);
             gB_bettingParlor.Size = new Size(741, 178);
             gB_bettingParlor.TabIndex = 5;
             gB_bettingParlor.TabStop = false;
             gB_bettingParlor.Text = "Betting Parlor";
             // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(357, 129);
+            numericUpDown1.Margin = new Padding(2);
+            numericUpDown1.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(47, 27);
+            numericUpDown1.TabIndex = 15;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
             // bt_race
             // 
             bt_race.Location = new Point(575, 22);
-            bt_race.Margin = new Padding(2, 2, 2, 2);
+            bt_race.Margin = new Padding(2);
             bt_race.Name = "bt_race";
             bt_race.Size = new Size(152, 144);
             bt_race.TabIndex = 14;
@@ -201,15 +212,18 @@ namespace DogsAtTheRaces
             // num_dogNumber
             // 
             num_dogNumber.Location = new Point(143, 129);
-            num_dogNumber.Margin = new Padding(2, 2, 2, 2);
+            num_dogNumber.Margin = new Padding(2);
+            num_dogNumber.Maximum = new decimal(new int[] { 15, 0, 0, 0 });
+            num_dogNumber.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
             num_dogNumber.Name = "num_dogNumber";
             num_dogNumber.Size = new Size(47, 27);
             num_dogNumber.TabIndex = 8;
+            num_dogNumber.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
             // bt_bet
             // 
             bt_bet.Location = new Point(87, 129);
-            bt_bet.Margin = new Padding(2, 2, 2, 2);
+            bt_bet.Margin = new Padding(2);
             bt_bet.Name = "bt_bet";
             bt_bet.Size = new Size(50, 27);
             bt_bet.TabIndex = 7;
@@ -262,7 +276,7 @@ namespace DogsAtTheRaces
             // 
             rb_Guy3.AutoSize = true;
             rb_Guy3.Location = new Point(8, 100);
-            rb_Guy3.Margin = new Padding(2, 2, 2, 2);
+            rb_Guy3.Margin = new Padding(2);
             rb_Guy3.Name = "rb_Guy3";
             rb_Guy3.Size = new Size(117, 24);
             rb_Guy3.TabIndex = 2;
@@ -274,7 +288,7 @@ namespace DogsAtTheRaces
             // 
             rb_Guy2.AutoSize = true;
             rb_Guy2.Location = new Point(8, 72);
-            rb_Guy2.Margin = new Padding(2, 2, 2, 2);
+            rb_Guy2.Margin = new Padding(2);
             rb_Guy2.Name = "rb_Guy2";
             rb_Guy2.Size = new Size(117, 24);
             rb_Guy2.TabIndex = 1;
@@ -286,7 +300,7 @@ namespace DogsAtTheRaces
             // 
             rb_Guy1.AutoSize = true;
             rb_Guy1.Location = new Point(8, 44);
-            rb_Guy1.Margin = new Padding(2, 2, 2, 2);
+            rb_Guy1.Margin = new Padding(2);
             rb_Guy1.Name = "rb_Guy1";
             rb_Guy1.Size = new Size(117, 24);
             rb_Guy1.TabIndex = 0;
@@ -297,14 +311,6 @@ namespace DogsAtTheRaces
             // t_raceTimer
             // 
             t_raceTimer.Tick += t_raceTimer_Tick;
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(357, 129);
-            numericUpDown1.Margin = new Padding(2);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(47, 27);
-            numericUpDown1.TabIndex = 15;
             // 
             // BettingParlor
             // 
@@ -317,7 +323,7 @@ namespace DogsAtTheRaces
             Controls.Add(pb_dog2);
             Controls.Add(pb_dog1);
             Controls.Add(pb_raceTrack);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "BettingParlor";
             Text = "Betting Parlor";
             ((System.ComponentModel.ISupportInitialize)pb_raceTrack).EndInit();
@@ -327,8 +333,8 @@ namespace DogsAtTheRaces
             ((System.ComponentModel.ISupportInitialize)pb_dog4).EndInit();
             gB_bettingParlor.ResumeLayout(false);
             gB_bettingParlor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)num_dogNumber).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)num_dogNumber).EndInit();
             ResumeLayout(false);
         }
 
