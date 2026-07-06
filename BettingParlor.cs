@@ -93,7 +93,8 @@ public partial class BettingParlor : Form
     }
     private void bt_race_Click(object sender, EventArgs e)
     {
-        if (HeeftGekozen1 && HeeftGekozen2 && HeeftGekozen3) {
+        if (HeeftGekozen1 && HeeftGekozen2 && HeeftGekozen3 && MagVeranderen == true) {
+            MagVeranderen = false;
             t_raceTimer.Start();
         } else
         {
@@ -103,67 +104,73 @@ public partial class BettingParlor : Form
 
     private void bt_bet_Click(object sender, EventArgs e)
     {
-        if (Gekozen == 1)
+        if (MagVeranderen == true)
         {
-            int moneybet = (int)num_dogNumber.Value;
-            int chosendog = (int)numericUpDown1.Value;
-            if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+            if (Gekozen == 1)
             {
-                HeeftGekozen1 = true;
-
-                GuyArray[Gekozen - 1].MyBet = new Bet()
+                int moneybet = (int)num_dogNumber.Value;
+                int chosendog = (int)numericUpDown1.Value;
+                if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
                 {
-                    Amount = moneybet,
-                    Dog = chosendog,
-                    Bettor = GuyArray[Gekozen - 1]
-                };
-                lb_guy1BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
-            }
-            else
-            {
-                HeeftGekozen1 = false;
-                MessageBox.Show("niet genoeg geld!!!");
-            }
-        }
-        else if (Gekozen == 2) {
-            int moneybet = (int)num_dogNumber.Value;
-            int chosendog = (int)numericUpDown1.Value;
-            if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
-            {
-                HeeftGekozen2 = true;
+                    HeeftGekozen1 = true;
 
-                GuyArray[Gekozen - 1].MyBet = new Bet()
+                    GuyArray[Gekozen - 1].MyBet = new Bet()
+                    {
+                        Amount = moneybet,
+                        Dog = chosendog,
+                        Bettor = GuyArray[Gekozen - 1]
+                    };
+                    lb_guy1BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+                }
+                else
                 {
-                    Amount = moneybet,
-                    Dog = chosendog,
-                    Bettor = GuyArray[Gekozen - 1]
-                };
-                lb_guy2BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+                    HeeftGekozen1 = false;
+                    MessageBox.Show("niet genoeg geld!!!");
+                }
             }
-            else
+            else if (Gekozen == 2)
             {
-                HeeftGekozen2 = false;
-                MessageBox.Show("niet genoeg geld!!!");
-            }
-        } else if (Gekozen == 3) {
-            int moneybet = (int)num_dogNumber.Value;
-            int chosendog = (int)numericUpDown1.Value;
-            if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
-            {
-                HeeftGekozen3 = true;
+                int moneybet = (int)num_dogNumber.Value;
+                int chosendog = (int)numericUpDown1.Value;
+                if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+                {
+                    HeeftGekozen2 = true;
 
-                GuyArray[Gekozen - 1].MyBet = new Bet()
+                    GuyArray[Gekozen - 1].MyBet = new Bet()
+                    {
+                        Amount = moneybet,
+                        Dog = chosendog,
+                        Bettor = GuyArray[Gekozen - 1]
+                    };
+                    lb_guy2BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+                }
+                else
                 {
-                    Amount = moneybet,
-                    Dog = chosendog,
-                    Bettor = GuyArray[Gekozen - 1]
-                };
-                lb_guy3BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+                    HeeftGekozen2 = false;
+                    MessageBox.Show("niet genoeg geld!!!");
+                }
             }
-            else
+            else if (Gekozen == 3)
             {
-                HeeftGekozen3 = false;
-                MessageBox.Show("niet genoeg geld!!!");
+                int moneybet = (int)num_dogNumber.Value;
+                int chosendog = (int)numericUpDown1.Value;
+                if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+                {
+                    HeeftGekozen3 = true;
+
+                    GuyArray[Gekozen - 1].MyBet = new Bet()
+                    {
+                        Amount = moneybet,
+                        Dog = chosendog,
+                        Bettor = GuyArray[Gekozen - 1]
+                    };
+                    lb_guy3BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+                }
+                else
+                {
+                    HeeftGekozen3 = false;
+                    MessageBox.Show("niet genoeg geld!!!");
+                }
             }
         }
     }
@@ -184,6 +191,7 @@ public partial class BettingParlor : Form
     }
     public void Reset(int Winner)
     {
+        MagVeranderen = true;
         Gekozen = 1;
         HeeftGekozen1 = false;
         HeeftGekozen2 = false;
