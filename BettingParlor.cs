@@ -8,11 +8,11 @@ public partial class BettingParlor : Form
     public Dog[] DogArray = new Dog[4];
     public Guy[] GuyArray = new Guy[3];
     public Random Randomize = new Random();
-    public int Gekozen = 1;
-    public bool HeeftGekozen1 = false;
-    public bool HeeftGekozen2 = false;
-    public bool HeeftGekozen3 = false;
-    public bool MagVeranderen = true;
+    public int Chosen = 1;
+    public bool HasChosen1 = false;
+    public bool HasChosen2 = false;
+    public bool HasChosen3 = false;
+    public bool CanChange = true;
 
     public BettingParlor()
     {
@@ -93,8 +93,8 @@ public partial class BettingParlor : Form
     }
     private void bt_race_Click(object sender, EventArgs e)
     {
-        if (HeeftGekozen1 && HeeftGekozen2 && HeeftGekozen3 && MagVeranderen == true) {
-            MagVeranderen = false;
+        if (HasChosen1 && HasChosen2 && HasChosen3 && CanChange == true) {
+            CanChange = false;
             t_raceTimer.Start();
         } else
         {
@@ -104,71 +104,71 @@ public partial class BettingParlor : Form
 
     private void bt_bet_Click(object sender, EventArgs e)
     {
-        if (MagVeranderen == true)
+        if (CanChange == true)
         {
-            if (Gekozen == 1)
+            if (Chosen == 1)
             {
                 int moneybet = (int)num_dogNumber.Value;
                 int chosendog = (int)numericUpDown1.Value;
-                if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+                if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
                 {
-                    HeeftGekozen1 = true;
+                    HasChosen1 = true;
 
-                    GuyArray[Gekozen - 1].MyBet = new Bet()
+                    GuyArray[Chosen - 1].MyBet = new Bet()
                     {
                         Amount = moneybet,
                         Dog = chosendog,
-                        Bettor = GuyArray[Gekozen - 1]
+                        Bettor = GuyArray[Chosen - 1]
                     };
-                    lb_guy1BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+                    lb_guy1BetLabel.Text = GuyArray[Chosen - 1].MyBet.GetDescription();
                 }
                 else
                 {
-                    HeeftGekozen1 = false;
+                    HasChosen1 = false;
                     MessageBox.Show("niet genoeg geld!!!");
                 }
             }
-            else if (Gekozen == 2)
+            else if (Chosen == 2)
             {
                 int moneybet = (int)num_dogNumber.Value;
                 int chosendog = (int)numericUpDown1.Value;
-                if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+                if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
                 {
-                    HeeftGekozen2 = true;
+                    HasChosen2 = true;
 
-                    GuyArray[Gekozen - 1].MyBet = new Bet()
+                    GuyArray[Chosen - 1].MyBet = new Bet()
                     {
                         Amount = moneybet,
                         Dog = chosendog,
-                        Bettor = GuyArray[Gekozen - 1]
+                        Bettor = GuyArray[Chosen - 1]
                     };
-                    lb_guy2BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+                    lb_guy2BetLabel.Text = GuyArray[Chosen - 1].MyBet.GetDescription();
                 }
                 else
                 {
-                    HeeftGekozen2 = false;
+                    HasChosen2 = false;
                     MessageBox.Show("niet genoeg geld!!!");
                 }
             }
-            else if (Gekozen == 3)
+            else if (Chosen == 3)
             {
                 int moneybet = (int)num_dogNumber.Value;
                 int chosendog = (int)numericUpDown1.Value;
-                if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+                if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
                 {
-                    HeeftGekozen3 = true;
+                    HasChosen3 = true;
 
-                    GuyArray[Gekozen - 1].MyBet = new Bet()
+                    GuyArray[Chosen - 1].MyBet = new Bet()
                     {
                         Amount = moneybet,
                         Dog = chosendog,
-                        Bettor = GuyArray[Gekozen - 1]
+                        Bettor = GuyArray[Chosen - 1]
                     };
-                    lb_guy3BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+                    lb_guy3BetLabel.Text = GuyArray[Chosen - 1].MyBet.GetDescription();
                 }
                 else
                 {
-                    HeeftGekozen3 = false;
+                    HasChosen3 = false;
                     MessageBox.Show("niet genoeg geld!!!");
                 }
             }
@@ -191,10 +191,10 @@ public partial class BettingParlor : Form
     }
     public void Reset(int Winner)
     {
-        MagVeranderen = true;
-        HeeftGekozen1 = false;
-        HeeftGekozen2 = false;
-        HeeftGekozen3 = false;
+        CanChange = true;
+        HasChosen1 = false;
+        HasChosen2 = false;
+        HasChosen3 = false;
         for (int i = 0; i < GuyArray.Length; i++)
         {
             GuyArray[i].Collect(Winner);
@@ -213,7 +213,7 @@ public partial class BettingParlor : Form
     {
         if (rb_Guy1.Checked)
         {
-            Gekozen = 1;
+            Chosen = 1;
             lb_name.Text = GuyArray[0].name;
         }
     }
@@ -221,7 +221,7 @@ public partial class BettingParlor : Form
     {
         if (rb_Guy2.Checked)
         {
-            Gekozen = 2;
+            Chosen = 2;
             lb_name.Text = GuyArray[1].name;
         }
     }
@@ -229,13 +229,8 @@ public partial class BettingParlor : Form
     {
         if (rb_Guy3.Checked)
         {
-            Gekozen = 3;
+            Chosen = 3;
             lb_name.Text = GuyArray[2].name;
         }
-    }
-
-    private void num_dogNumber_ValueChanged(object sender, EventArgs e)
-    {
-
     }
 }
