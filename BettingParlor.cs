@@ -1,4 +1,5 @@
 using Microsoft.VisualBasic.Logging;
+using System.Reflection;
 
 namespace DogsAtTheRaces;
 
@@ -7,7 +8,10 @@ public partial class BettingParlor : Form
     public Dog[] DogArray = new Dog[4];
     public Guy[] GuyArray = new Guy[3];
     public Random Randomize = new Random();
-
+    public int Gekozen = 1;
+    public bool HeeftGekozen1 = false;
+    public bool HeeftGekozen2 = false;
+    public bool HeeftGekozen3 = false;
 
     public BettingParlor()
     {
@@ -53,6 +57,7 @@ public partial class BettingParlor : Form
             MyRadioButton = rb_Guy1,
             MyLabel = lb_guy1BetLabel
         };
+        GuyArray[0].MyBet.Bettor = GuyArray[0];
         GuyArray[1] = new Guy()
         {
             name = "Bob",
@@ -60,12 +65,12 @@ public partial class BettingParlor : Form
             {
                 Amount = 6,
                 Dog = 2,
-                Bettor = GuyArray[0]
             },
             Cash = 75,
             MyRadioButton = rb_Guy2,
             MyLabel = lb_guy2BetLabel
         };
+        GuyArray[1].MyBet.Bettor = GuyArray[1];
         GuyArray[2] = new Guy()
         {
             name = "Al",
@@ -73,49 +78,90 @@ public partial class BettingParlor : Form
             {
                 Amount = 2,
                 Dog = 1,
-                Bettor = GuyArray[0]
+                Bettor = GuyArray[2]
             },
             Cash = 45,
             MyRadioButton = rb_Guy3,
             MyLabel = lb_guy3BetLabel
         };
+        GuyArray[2].MyBet.Bettor = GuyArray[2];
         GuyArray[0].UpdateLabels();
         GuyArray[1].UpdateLabels();
         GuyArray[2].UpdateLabels();
-        timer1_Tick();
+        lb_guy1BetLabel.Text = GuyArray[0].MyBet.GetDescription();
+        lb_guy2BetLabel.Text = GuyArray[1].MyBet.GetDescription();
+        lb_guy3BetLabel.Text = GuyArray[2].MyBet.GetDescription();
     }
-
-    private void timer1_Tick()
-    {
-        for (int i = 0; i < DogArray.Length; i++)
-        {
-            if (DogArray[i].Run())
-            {
-                label2.Text = DogArray[i] + " Heeft gewonnen";
-            }
-        }
-    }
-
     private void bt_race_Click(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        if (HeeftGekozen1 && HeeftGekozen2 && HeeftGekozen3) {
+            t_raceTimer.Start();
+        } else
+        {
+            MessageBox.Show("Nog niet iedereen heeft gewet!!!");
+        }
     }
 
     private void bt_bet_Click(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        if (Gekozen == 1)
+        {
+            int moneybet = (int)num_dogNumber.Value;
+            int chosendog = (int)numericUpDown1.Value;
+            if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+            {
+                HeeftGekozen1 = true;
+            } else
+            {
+                HeeftGekozen1 = false;
+                MessageBox.Show("niet genoeg geld!!!");
+            }
+        }
+        else if (Gekozen == 2) {
+            int moneybet = (int)num_dogNumber.Value;
+            int chosendog = (int)numericUpDown1.Value;
+            if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+            {
+                HeeftGekozen2 = true;
+            }
+            else
+            {
+                HeeftGekozen2 = false;
+                MessageBox.Show("niet genoeg geld!!!");
+            }
+        } else if (Gekozen == 3) {
+            int moneybet = (int)num_dogNumber.Value;
+            int chosendog = (int)numericUpDown1.Value;
+            if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
+            {
+                HeeftGekozen3 = true;
+            }
+            else
+            {
+                HeeftGekozen3 = false;
+                MessageBox.Show("niet genoeg geld!!!");
+            }
+        }
     }
 
 
     private void t_raceTimer_Tick(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < DogArray.Length; i++)
+        {
+            if (DogArray[i].Run())
+            {
+                MessageBox.Show("hond nummer " + (i + 1) + " heeft gewonnen");
+                t_raceTimer.Stop();
+            }
+        }
     }
 
     public void rb_Guy1_CheckedChanged(object sender, EventArgs e)
     {
         if (rb_Guy1.Checked)
         {
+            Gekozen = 1;
             lb_name.Text = GuyArray[0].name;
         }
     }
@@ -123,6 +169,7 @@ public partial class BettingParlor : Form
     {
         if (rb_Guy2.Checked)
         {
+            Gekozen = 2;
             lb_name.Text = GuyArray[1].name;
         }
     }
@@ -130,7 +177,13 @@ public partial class BettingParlor : Form
     {
         if (rb_Guy3.Checked)
         {
+            Gekozen = 3;
             lb_name.Text = GuyArray[2].name;
         }
+    }
+
+    private void num_dogNumber_ValueChanged(object sender, EventArgs e)
+    {
+
     }
 }

@@ -219,6 +219,7 @@ namespace DogsAtTheRaces
             num_dogNumber.Size = new Size(47, 27);
             num_dogNumber.TabIndex = 8;
             num_dogNumber.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            num_dogNumber.ValueChanged += num_dogNumber_ValueChanged;
             // 
             // bt_bet
             // 

@@ -24,7 +24,13 @@ namespace DogsAtTheRaces
         }
         public int PayOut(int Winner)
         {
-            return Winner;
+            if (Winner == Dog)
+            {
+                return Amount *= 2;
+            } else
+            {
+                return 0;
+            }
         }
     }
 }
