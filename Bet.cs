@@ -24,7 +24,7 @@ namespace DogsAtTheRaces
         }
         public int PayOut(int Winner)
         {
-
+            return Winner;
         }
     }
 }
