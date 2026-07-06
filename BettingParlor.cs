@@ -192,7 +192,6 @@ public partial class BettingParlor : Form
     public void Reset(int Winner)
     {
         MagVeranderen = true;
-        Gekozen = 1;
         HeeftGekozen1 = false;
         HeeftGekozen2 = false;
         HeeftGekozen3 = false;
