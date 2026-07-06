@@ -283,6 +283,7 @@ namespace DogsAtTheRaces
             rb_Guy3.TabStop = true;
             rb_Guy3.Text = "radioButton3";
             rb_Guy3.UseVisualStyleBackColor = true;
+            rb_Guy3.CheckedChanged += rb_Guy3_CheckedChanged_1;
             // 
             // rb_Guy2
             // 
@@ -295,6 +296,7 @@ namespace DogsAtTheRaces
             rb_Guy2.TabStop = true;
             rb_Guy2.Text = "radioButton2";
             rb_Guy2.UseVisualStyleBackColor = true;
+            rb_Guy2.CheckedChanged += rb_Guy2_CheckedChanged_1;
             // 
             // rb_Guy1
             // 
@@ -302,6 +304,7 @@ namespace DogsAtTheRaces
             rb_Guy1.Location = new Point(8, 44);
             rb_Guy1.Margin = new Padding(2);
             rb_Guy1.Name = "rb_Guy1";
+            rb_Guy1.RightToLeft = RightToLeft.No;
             rb_Guy1.Size = new Size(117, 24);
             rb_Guy1.TabIndex = 0;
             rb_Guy1.TabStop = true;

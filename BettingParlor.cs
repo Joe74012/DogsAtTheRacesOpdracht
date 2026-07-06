@@ -56,6 +56,12 @@ public partial class BettingParlor : Form
         GuyArray[1] = new Guy()
         {
             name = "Bob",
+            MyBet = new Bet()
+            {
+                Amount = 6,
+                Dog = 2,
+                Bettor = GuyArray[0]
+            },
             Cash = 75,
             MyRadioButton = rb_Guy2,
             MyLabel = lb_guy2BetLabel
@@ -63,6 +69,12 @@ public partial class BettingParlor : Form
         GuyArray[2] = new Guy()
         {
             name = "Al",
+            MyBet = new Bet()
+            {
+                Amount = 2,
+                Dog = 1,
+                Bettor = GuyArray[0]
+            },
             Cash = 45,
             MyRadioButton = rb_Guy3,
             MyLabel = lb_guy3BetLabel
@@ -75,15 +87,11 @@ public partial class BettingParlor : Form
 
     private void timer1_Tick()
     {
-        for (int i = 0; i < DogArray.Length;)
+        for (int i = 0; i < DogArray.Length; i++)
         {
             if (DogArray[i].Run())
             {
                 label2.Text = DogArray[i] + " Heeft gewonnen";
-            }
-            else
-            {
-                i++;
             }
         }
     }
@@ -104,16 +112,25 @@ public partial class BettingParlor : Form
         throw new NotImplementedException();
     }
 
-    private void rb_Guy1_CheckedChanged(object sender, EventArgs e)
+    public void rb_Guy1_CheckedChanged(object sender, EventArgs e)
     {
-        lb_name.Text = GuyArray[0].name;
+        if (rb_Guy1.Checked)
+        {
+            lb_name.Text = GuyArray[0].name;
+        }
     }
-    private void rb_Guy2_CheckedChanged(object sender, EventArgs e)
+    public void rb_Guy2_CheckedChanged_1(object sender, EventArgs e)
     {
-        lb_name.Text = GuyArray[1].name;
+        if (rb_Guy2.Checked)
+        {
+            lb_name.Text = GuyArray[1].name;
+        }
     }
-    private void rb_Guy3_CheckedChanged(object sender, EventArgs e)
+    public void rb_Guy3_CheckedChanged_1(object sender, EventArgs e)
     {
-        lb_name.Text = GuyArray[2].name;
+        if (rb_Guy3.Checked)
+        {
+            lb_name.Text = GuyArray[2].name;
+        }
     }
 }
