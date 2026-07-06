@@ -258,9 +258,9 @@ namespace DogsAtTheRaces
             lb_minimumBet.Location = new Point(110, 22);
             lb_minimumBet.Margin = new Padding(2, 0, 2, 0);
             lb_minimumBet.Name = "lb_minimumBet";
-            lb_minimumBet.Size = new Size(138, 20);
+            lb_minimumBet.Size = new Size(17, 20);
             lb_minimumBet.TabIndex = 4;
-            lb_minimumBet.Text = "<<minimum bet>>";
+            lb_minimumBet.Text = "5";
             // 
             // label1
             // 
