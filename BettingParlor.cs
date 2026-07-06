@@ -12,6 +12,7 @@ public partial class BettingParlor : Form
     public bool HeeftGekozen1 = false;
     public bool HeeftGekozen2 = false;
     public bool HeeftGekozen3 = false;
+    public bool MagVeranderen = true;
 
     public BettingParlor()
     {
