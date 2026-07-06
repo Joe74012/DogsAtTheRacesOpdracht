@@ -6,7 +6,31 @@ using System.Threading.Tasks;
 
 namespace DogsAtTheRaces
 {
-    internal class Bet
+    public class Bet
     {
+        public int Amount;
+        public int Dog;
+        public Guy Bettor;
+
+        public string GetDescription()
+        {
+            if (Amount == 0)
+            {
+                return Bettor.name + " hasn't placed a bet";
+            } else
+            {
+                return Bettor.name + " bets " + Amount + " on dog #" + Dog;
+            }
+        }
+        public int PayOut(int Winner)
+        {
+            if (Winner == Dog)
+            {
+                return Amount * 2;
+            } else
+            {
+                return 0;
+            }
+        }
     }
 }
