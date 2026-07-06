@@ -307,6 +307,7 @@ namespace DogsAtTheRaces
             rb_Guy1.TabStop = true;
             rb_Guy1.Text = "radioButton1";
             rb_Guy1.UseVisualStyleBackColor = true;
+            rb_Guy1.CheckedChanged += rb_Guy1_CheckedChanged;
             // 
             // t_raceTimer
             // 

@@ -6,6 +6,7 @@ public partial class BettingParlor : Form
 {
     public Dog[] DogArray = new Dog[4];
     public Guy[] GuyArray = new Guy[3];
+    public Random Randomize = new Random();
 
 
     public BettingParlor()
@@ -16,28 +17,28 @@ public partial class BettingParlor : Form
             MyPictureBox = pb_dog1,
             StartingPosition = pb_dog1.Left,
             RacetrackLength = pb_raceTrack.Width - pb_dog1.Width,
-            Randomizer = new Random()
+            Randomizer = Randomize
         };
         DogArray[1] = new Dog()
         {
             MyPictureBox = pb_dog2,
             StartingPosition = pb_dog2.Left,
             RacetrackLength = pb_raceTrack.Width - pb_dog2.Width,
-            Randomizer = new Random()
+            Randomizer = Randomize
         };
         DogArray[2] = new Dog()
         {
             MyPictureBox = pb_dog3,
             StartingPosition = pb_dog3.Left,
             RacetrackLength = pb_raceTrack.Width - pb_dog3.Width,
-            Randomizer = new Random()
+            Randomizer = Randomize
         };
         DogArray[3] = new Dog()
         {
             MyPictureBox = pb_dog4,
             StartingPosition = pb_dog4.Left,
             RacetrackLength = pb_raceTrack.Width - pb_dog4.Width,
-            Randomizer = new Random()
+            Randomizer = Randomize
         };
         GuyArray[0] = new Guy()
         {
@@ -66,12 +67,12 @@ public partial class BettingParlor : Form
             MyRadioButton = rb_Guy3,
             MyLabel = lb_guy3BetLabel
         };
-        GuyArray[1].PlaceBet(7, 3);
         GuyArray[0].UpdateLabels();
         GuyArray[1].UpdateLabels();
         GuyArray[2].UpdateLabels();
         timer1_Tick();
     }
+
     private void timer1_Tick()
     {
         for (int i = 0; i < DogArray.Length;)
@@ -101,5 +102,18 @@ public partial class BettingParlor : Form
     private void t_raceTimer_Tick(object sender, EventArgs e)
     {
         throw new NotImplementedException();
+    }
+
+    private void rb_Guy1_CheckedChanged(object sender, EventArgs e)
+    {
+        lb_name.Text = GuyArray[0].name;
+    }
+    private void rb_Guy2_CheckedChanged(object sender, EventArgs e)
+    {
+        lb_name.Text = GuyArray[1].name;
+    }
+    private void rb_Guy3_CheckedChanged(object sender, EventArgs e)
+    {
+        lb_name.Text = GuyArray[2].name;
     }
 }
