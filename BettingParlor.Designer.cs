@@ -52,6 +52,7 @@ namespace DogsAtTheRaces
             rb_Guy2 = new RadioButton();
             rb_Guy1 = new RadioButton();
             t_raceTimer = new System.Windows.Forms.Timer(components);
+            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)pb_raceTrack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_dog1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_dog2).BeginInit();
@@ -59,6 +60,7 @@ namespace DogsAtTheRaces
             ((System.ComponentModel.ISupportInitialize)pb_dog4).BeginInit();
             gB_bettingParlor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)num_dogNumber).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // pb_raceTrack
@@ -67,9 +69,10 @@ namespace DogsAtTheRaces
             pb_raceTrack.BackgroundImage = (Image)resources.GetObject("pb_raceTrack.BackgroundImage");
             pb_raceTrack.BackgroundImageLayout = ImageLayout.Stretch;
             pb_raceTrack.InitialImage = null;
-            pb_raceTrack.Location = new Point(12, 12);
+            pb_raceTrack.Location = new Point(10, 10);
+            pb_raceTrack.Margin = new Padding(2, 2, 2, 2);
             pb_raceTrack.Name = "pb_raceTrack";
-            pb_raceTrack.Size = new Size(926, 337);
+            pb_raceTrack.Size = new Size(741, 270);
             pb_raceTrack.TabIndex = 0;
             pb_raceTrack.TabStop = false;
             // 
@@ -77,9 +80,10 @@ namespace DogsAtTheRaces
             // 
             pb_dog1.BackgroundImage = (Image)resources.GetObject("pb_dog1.BackgroundImage");
             pb_dog1.BackgroundImageLayout = ImageLayout.Stretch;
-            pb_dog1.Location = new Point(22, 23);
+            pb_dog1.Location = new Point(18, 18);
+            pb_dog1.Margin = new Padding(2, 2, 2, 2);
             pb_dog1.Name = "pb_dog1";
-            pb_dog1.Size = new Size(128, 48);
+            pb_dog1.Size = new Size(102, 38);
             pb_dog1.TabIndex = 1;
             pb_dog1.TabStop = false;
             // 
@@ -87,9 +91,10 @@ namespace DogsAtTheRaces
             // 
             pb_dog2.BackgroundImage = (Image)resources.GetObject("pb_dog2.BackgroundImage");
             pb_dog2.BackgroundImageLayout = ImageLayout.Stretch;
-            pb_dog2.Location = new Point(22, 105);
+            pb_dog2.Location = new Point(18, 84);
+            pb_dog2.Margin = new Padding(2, 2, 2, 2);
             pb_dog2.Name = "pb_dog2";
-            pb_dog2.Size = new Size(128, 48);
+            pb_dog2.Size = new Size(102, 38);
             pb_dog2.TabIndex = 2;
             pb_dog2.TabStop = false;
             // 
@@ -97,9 +102,10 @@ namespace DogsAtTheRaces
             // 
             pb_dog3.BackgroundImage = (Image)resources.GetObject("pb_dog3.BackgroundImage");
             pb_dog3.BackgroundImageLayout = ImageLayout.Stretch;
-            pb_dog3.Location = new Point(22, 196);
+            pb_dog3.Location = new Point(18, 157);
+            pb_dog3.Margin = new Padding(2, 2, 2, 2);
             pb_dog3.Name = "pb_dog3";
-            pb_dog3.Size = new Size(128, 48);
+            pb_dog3.Size = new Size(102, 38);
             pb_dog3.TabIndex = 3;
             pb_dog3.TabStop = false;
             // 
@@ -107,14 +113,16 @@ namespace DogsAtTheRaces
             // 
             pb_dog4.BackgroundImage = (Image)resources.GetObject("pb_dog4.BackgroundImage");
             pb_dog4.BackgroundImageLayout = ImageLayout.Stretch;
-            pb_dog4.Location = new Point(22, 287);
+            pb_dog4.Location = new Point(18, 230);
+            pb_dog4.Margin = new Padding(2, 2, 2, 2);
             pb_dog4.Name = "pb_dog4";
-            pb_dog4.Size = new Size(128, 48);
+            pb_dog4.Size = new Size(102, 38);
             pb_dog4.TabIndex = 4;
             pb_dog4.TabStop = false;
             // 
             // gB_bettingParlor
             // 
+            gB_bettingParlor.Controls.Add(numericUpDown1);
             gB_bettingParlor.Controls.Add(bt_race);
             gB_bettingParlor.Controls.Add(lb_guy3BetLabel);
             gB_bettingParlor.Controls.Add(lb_guy2BetLabel);
@@ -129,18 +137,21 @@ namespace DogsAtTheRaces
             gB_bettingParlor.Controls.Add(rb_Guy3);
             gB_bettingParlor.Controls.Add(rb_Guy2);
             gB_bettingParlor.Controls.Add(rb_Guy1);
-            gB_bettingParlor.Location = new Point(12, 355);
+            gB_bettingParlor.Location = new Point(10, 284);
+            gB_bettingParlor.Margin = new Padding(2, 2, 2, 2);
             gB_bettingParlor.Name = "gB_bettingParlor";
-            gB_bettingParlor.Size = new Size(926, 223);
+            gB_bettingParlor.Padding = new Padding(2, 2, 2, 2);
+            gB_bettingParlor.Size = new Size(741, 178);
             gB_bettingParlor.TabIndex = 5;
             gB_bettingParlor.TabStop = false;
             gB_bettingParlor.Text = "Betting Parlor";
             // 
             // bt_race
             // 
-            bt_race.Location = new Point(719, 27);
+            bt_race.Location = new Point(575, 22);
+            bt_race.Margin = new Padding(2, 2, 2, 2);
             bt_race.Name = "bt_race";
-            bt_race.Size = new Size(190, 180);
+            bt_race.Size = new Size(152, 144);
             bt_race.TabIndex = 14;
             bt_race.Text = "Race!";
             bt_race.UseVisualStyleBackColor = true;
@@ -149,27 +160,30 @@ namespace DogsAtTheRaces
             // lb_guy3BetLabel
             // 
             lb_guy3BetLabel.AutoSize = true;
-            lb_guy3BetLabel.Location = new Point(373, 127);
+            lb_guy3BetLabel.Location = new Point(298, 102);
+            lb_guy3BetLabel.Margin = new Padding(2, 0, 2, 0);
             lb_guy3BetLabel.Name = "lb_guy3BetLabel";
-            lb_guy3BetLabel.Size = new Size(178, 25);
+            lb_guy3BetLabel.Size = new Size(148, 20);
             lb_guy3BetLabel.TabIndex = 13;
             lb_guy3BetLabel.Text = "<<guy 3 bet label>>";
             // 
             // lb_guy2BetLabel
             // 
             lb_guy2BetLabel.AutoSize = true;
-            lb_guy2BetLabel.Location = new Point(373, 92);
+            lb_guy2BetLabel.Location = new Point(298, 74);
+            lb_guy2BetLabel.Margin = new Padding(2, 0, 2, 0);
             lb_guy2BetLabel.Name = "lb_guy2BetLabel";
-            lb_guy2BetLabel.Size = new Size(178, 25);
+            lb_guy2BetLabel.Size = new Size(148, 20);
             lb_guy2BetLabel.TabIndex = 12;
             lb_guy2BetLabel.Text = "<<guy 2 bet label>>";
             // 
             // lb_guy1BetLabel
             // 
             lb_guy1BetLabel.AutoSize = true;
-            lb_guy1BetLabel.Location = new Point(373, 57);
+            lb_guy1BetLabel.Location = new Point(298, 46);
+            lb_guy1BetLabel.Margin = new Padding(2, 0, 2, 0);
             lb_guy1BetLabel.Name = "lb_guy1BetLabel";
-            lb_guy1BetLabel.Size = new Size(178, 25);
+            lb_guy1BetLabel.Size = new Size(148, 20);
             lb_guy1BetLabel.TabIndex = 11;
             lb_guy1BetLabel.Text = "<<guy 1 bet label>>";
             // 
@@ -177,24 +191,27 @@ namespace DogsAtTheRaces
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(373, 27);
+            label4.Location = new Point(298, 22);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(49, 25);
+            label4.Size = new Size(40, 20);
             label4.TabIndex = 10;
             label4.Text = "Bets";
             // 
             // num_dogNumber
             // 
-            num_dogNumber.Location = new Point(373, 164);
+            num_dogNumber.Location = new Point(143, 129);
+            num_dogNumber.Margin = new Padding(2, 2, 2, 2);
             num_dogNumber.Name = "num_dogNumber";
-            num_dogNumber.Size = new Size(59, 31);
+            num_dogNumber.Size = new Size(47, 27);
             num_dogNumber.TabIndex = 8;
             // 
             // bt_bet
             // 
-            bt_bet.Location = new Point(109, 161);
+            bt_bet.Location = new Point(87, 129);
+            bt_bet.Margin = new Padding(2, 2, 2, 2);
             bt_bet.Name = "bt_bet";
-            bt_bet.Size = new Size(63, 34);
+            bt_bet.Size = new Size(50, 27);
             bt_bet.TabIndex = 7;
             bt_bet.Text = "Bets";
             bt_bet.UseVisualStyleBackColor = true;
@@ -203,27 +220,30 @@ namespace DogsAtTheRaces
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(178, 166);
+            label2.Location = new Point(196, 133);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(198, 25);
+            label2.Size = new Size(160, 20);
             label2.TabIndex = 6;
             label2.Text = "bucks on dog number: ";
             // 
             // lb_name
             // 
             lb_name.AutoSize = true;
-            lb_name.Location = new Point(10, 166);
+            lb_name.Location = new Point(8, 133);
+            lb_name.Margin = new Padding(2, 0, 2, 0);
             lb_name.Name = "lb_name";
-            lb_name.Size = new Size(104, 25);
+            lb_name.Size = new Size(86, 20);
             lb_name.TabIndex = 5;
             lb_name.Text = "<<name>>";
             // 
             // lb_minimumBet
             // 
             lb_minimumBet.AutoSize = true;
-            lb_minimumBet.Location = new Point(138, 27);
+            lb_minimumBet.Location = new Point(110, 22);
+            lb_minimumBet.Margin = new Padding(2, 0, 2, 0);
             lb_minimumBet.Name = "lb_minimumBet";
-            lb_minimumBet.Size = new Size(167, 25);
+            lb_minimumBet.Size = new Size(138, 20);
             lb_minimumBet.TabIndex = 4;
             lb_minimumBet.Text = "<<minimum bet>>";
             // 
@@ -231,18 +251,20 @@ namespace DogsAtTheRaces
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(10, 27);
+            label1.Location = new Point(8, 22);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(136, 25);
+            label1.Size = new Size(112, 20);
             label1.TabIndex = 3;
             label1.Text = "Minimum bet: ";
             // 
             // rb_Guy3
             // 
             rb_Guy3.AutoSize = true;
-            rb_Guy3.Location = new Point(10, 125);
+            rb_Guy3.Location = new Point(8, 100);
+            rb_Guy3.Margin = new Padding(2, 2, 2, 2);
             rb_Guy3.Name = "rb_Guy3";
-            rb_Guy3.Size = new Size(141, 29);
+            rb_Guy3.Size = new Size(117, 24);
             rb_Guy3.TabIndex = 2;
             rb_Guy3.TabStop = true;
             rb_Guy3.Text = "radioButton3";
@@ -251,9 +273,10 @@ namespace DogsAtTheRaces
             // rb_Guy2
             // 
             rb_Guy2.AutoSize = true;
-            rb_Guy2.Location = new Point(10, 90);
+            rb_Guy2.Location = new Point(8, 72);
+            rb_Guy2.Margin = new Padding(2, 2, 2, 2);
             rb_Guy2.Name = "rb_Guy2";
-            rb_Guy2.Size = new Size(141, 29);
+            rb_Guy2.Size = new Size(117, 24);
             rb_Guy2.TabIndex = 1;
             rb_Guy2.TabStop = true;
             rb_Guy2.Text = "radioButton2";
@@ -262,9 +285,10 @@ namespace DogsAtTheRaces
             // rb_Guy1
             // 
             rb_Guy1.AutoSize = true;
-            rb_Guy1.Location = new Point(10, 55);
+            rb_Guy1.Location = new Point(8, 44);
+            rb_Guy1.Margin = new Padding(2, 2, 2, 2);
             rb_Guy1.Name = "rb_Guy1";
-            rb_Guy1.Size = new Size(141, 29);
+            rb_Guy1.Size = new Size(117, 24);
             rb_Guy1.TabIndex = 0;
             rb_Guy1.TabStop = true;
             rb_Guy1.Text = "radioButton1";
@@ -274,17 +298,26 @@ namespace DogsAtTheRaces
             // 
             t_raceTimer.Tick += t_raceTimer_Tick;
             // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(357, 129);
+            numericUpDown1.Margin = new Padding(2);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(47, 27);
+            numericUpDown1.TabIndex = 15;
+            // 
             // BettingParlor
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(946, 590);
+            ClientSize = new Size(757, 472);
             Controls.Add(gB_bettingParlor);
             Controls.Add(pb_dog4);
             Controls.Add(pb_dog3);
             Controls.Add(pb_dog2);
             Controls.Add(pb_dog1);
             Controls.Add(pb_raceTrack);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "BettingParlor";
             Text = "Betting Parlor";
             ((System.ComponentModel.ISupportInitialize)pb_raceTrack).EndInit();
@@ -295,6 +328,7 @@ namespace DogsAtTheRaces
             gB_bettingParlor.ResumeLayout(false);
             gB_bettingParlor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)num_dogNumber).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -322,5 +356,6 @@ namespace DogsAtTheRaces
         private Label label4;
         private Button bt_race;
         private System.Windows.Forms.Timer t_raceTimer;
+        private NumericUpDown numericUpDown1;
     }
 }
