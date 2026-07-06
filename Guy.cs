@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DogsAtTheRaces
 {
@@ -15,19 +16,27 @@ namespace DogsAtTheRaces
         public Label MyLabel;
         public void UpdateLabels()
         {
-
+            if (MyBet != null) {
+                MyLabel.Text = name + " bets " + MyBet.Amount + " on dog #" + MyBet.Dog;
+            }
+            MyRadioButton.Text = name + " has " + Cash + " bucks";
         }
         public void ClearBet()
         {
-
+            MyBet.Amount = 0;
         }
-        public void PlaceBet()
+        public bool PlaceBet(int BetAmount, int DogToWin)
         {
-
+            if (Cash >= BetAmount) {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
         public void Collect(int Winner)
         {
-
+            MyBet.Amount += MyBet.Bettor.Cash;
         }
     }
 }
