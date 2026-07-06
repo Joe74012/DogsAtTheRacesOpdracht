@@ -47,50 +47,27 @@ public partial class BettingParlor : Form
         GuyArray[0] = new Guy()
         {
             name = "Joe",
-            MyBet = new Bet()
-            {
-                Amount = 7,
-                Dog = 3,
-                Bettor = GuyArray[0]
-            },
             Cash = 50,
             MyRadioButton = rb_Guy1,
             MyLabel = lb_guy1BetLabel
         };
-        GuyArray[0].MyBet.Bettor = GuyArray[0];
         GuyArray[1] = new Guy()
         {
             name = "Bob",
-            MyBet = new Bet()
-            {
-                Amount = 6,
-                Dog = 2,
-            },
             Cash = 75,
             MyRadioButton = rb_Guy2,
             MyLabel = lb_guy2BetLabel
         };
-        GuyArray[1].MyBet.Bettor = GuyArray[1];
         GuyArray[2] = new Guy()
         {
             name = "Al",
-            MyBet = new Bet()
-            {
-                Amount = 2,
-                Dog = 1,
-                Bettor = GuyArray[2]
-            },
             Cash = 45,
             MyRadioButton = rb_Guy3,
             MyLabel = lb_guy3BetLabel
         };
-        GuyArray[2].MyBet.Bettor = GuyArray[2];
         GuyArray[0].UpdateLabels();
         GuyArray[1].UpdateLabels();
         GuyArray[2].UpdateLabels();
-        lb_guy1BetLabel.Text = GuyArray[0].MyBet.GetDescription();
-        lb_guy2BetLabel.Text = GuyArray[1].MyBet.GetDescription();
-        lb_guy3BetLabel.Text = GuyArray[2].MyBet.GetDescription();
     }
     private void bt_race_Click(object sender, EventArgs e)
     {
@@ -111,7 +88,16 @@ public partial class BettingParlor : Form
             if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
             {
                 HeeftGekozen1 = true;
-            } else
+
+                GuyArray[Gekozen - 1].MyBet = new Bet()
+                {
+                    Amount = moneybet,
+                    Dog = chosendog,
+                    Bettor = GuyArray[Gekozen - 1]
+                };
+                lb_guy1BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
+            }
+            else
             {
                 HeeftGekozen1 = false;
                 MessageBox.Show("niet genoeg geld!!!");
@@ -123,6 +109,14 @@ public partial class BettingParlor : Form
             if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
             {
                 HeeftGekozen2 = true;
+
+                GuyArray[Gekozen - 1].MyBet = new Bet()
+                {
+                    Amount = moneybet,
+                    Dog = chosendog,
+                    Bettor = GuyArray[Gekozen - 1]
+                };
+                lb_guy2BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
             }
             else
             {
@@ -135,6 +129,14 @@ public partial class BettingParlor : Form
             if (GuyArray[Gekozen - 1].PlaceBet(moneybet, chosendog))
             {
                 HeeftGekozen3 = true;
+
+                GuyArray[Gekozen - 1].MyBet = new Bet()
+                {
+                    Amount = moneybet,
+                    Dog = chosendog,
+                    Bettor = GuyArray[Gekozen - 1]
+                };
+                lb_guy3BetLabel.Text = GuyArray[Gekozen - 1].MyBet.GetDescription();
             }
             else
             {
