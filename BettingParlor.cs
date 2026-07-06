@@ -49,25 +49,46 @@ public partial class BettingParlor : Form
             name = "Joe",
             Cash = 50,
             MyRadioButton = rb_Guy1,
+            MyBet = new Bet()
+            {
+                Amount = 0,
+                Dog = 0,
+            },
             MyLabel = lb_guy1BetLabel
         };
+        GuyArray[0].MyBet.Bettor = GuyArray[0];
         GuyArray[1] = new Guy()
         {
             name = "Bob",
             Cash = 75,
             MyRadioButton = rb_Guy2,
+            MyBet = new Bet()
+            {
+                Amount = 0,
+                Dog = 0,
+            },
             MyLabel = lb_guy2BetLabel
         };
+        GuyArray[1].MyBet.Bettor = GuyArray[1];
         GuyArray[2] = new Guy()
         {
             name = "Al",
             Cash = 45,
             MyRadioButton = rb_Guy3,
+            MyBet = new Bet()
+            {
+                Amount = 0,
+                Dog = 0,
+            },
             MyLabel = lb_guy3BetLabel
         };
+        GuyArray[2].MyBet.Bettor = GuyArray[0];
         GuyArray[0].UpdateLabels();
         GuyArray[1].UpdateLabels();
         GuyArray[2].UpdateLabels();
+        lb_guy1BetLabel.Text = GuyArray[0].MyBet.GetDescription();
+        lb_guy2BetLabel.Text =  GuyArray[1].MyBet.GetDescription();
+        lb_guy3BetLabel.Text =  GuyArray[2].MyBet.GetDescription();
     }
     private void bt_race_Click(object sender, EventArgs e)
     {
