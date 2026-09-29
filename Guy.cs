@@ -39,7 +39,8 @@ namespace DogsAtTheRaces
             Cash -= MyBet.Amount;
             int Bucks = MyBet.PayOut(Winner);
             Cash += Bucks;
-            MyBet.Amount = 0;
+            ClearBet();
+            UpdateLabels();
         }
     }
 }
