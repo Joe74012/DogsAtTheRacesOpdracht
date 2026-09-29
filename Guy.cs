@@ -22,6 +22,7 @@ namespace DogsAtTheRaces
         }
         public void ClearBet()
         {
+            MyBet.Dog = 0;
             MyBet.Amount = 0;
         }
         public bool PlaceBet(int BetAmount, int DogToWin)

@@ -17,7 +17,7 @@ namespace DogsAtTheRaces
 
         public bool Run()
         {
-            int Number = Randomizer.Next(0, 4);
+            int Number = Randomizer.Next(0, 12);
             Location += Number;
             MyPictureBox.Left = StartingPosition + Location;
             if (Location >= RacetrackLength)
