@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace DogsAtTheRaces
 {
@@ -17,6 +18,7 @@ namespace DogsAtTheRaces
         public void UpdateLabels()
         {
             MyRadioButton.Text = name + " has " + Cash + " bucks";
+            MyLabel.Text = MyBet.GetDescription();
         }
         public void ClearBet()
         {

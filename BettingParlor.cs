@@ -87,9 +87,6 @@ public partial class BettingParlor : Form
         GuyArray[0].UpdateLabels();
         GuyArray[1].UpdateLabels();
         GuyArray[2].UpdateLabels();
-        lb_guy1BetLabel.Text = GuyArray[0].MyBet.GetDescription();
-        lb_guy2BetLabel.Text =  GuyArray[1].MyBet.GetDescription();
-        lb_guy3BetLabel.Text =  GuyArray[2].MyBet.GetDescription();
     }
     private void bt_race_Click(object sender, EventArgs e)
     {
@@ -120,7 +117,7 @@ public partial class BettingParlor : Form
                         Dog = chosendog,
                         Bettor = GuyArray[Chosen - 1]
                     };
-                    lb_guy1BetLabel.Text = GuyArray[Chosen - 1].MyBet.GetDescription();
+                    GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
                 {
@@ -142,7 +139,7 @@ public partial class BettingParlor : Form
                         Dog = chosendog,
                         Bettor = GuyArray[Chosen - 1]
                     };
-                    lb_guy2BetLabel.Text = GuyArray[Chosen - 1].MyBet.GetDescription();
+                    GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
                 {
@@ -164,7 +161,7 @@ public partial class BettingParlor : Form
                         Dog = chosendog,
                         Bettor = GuyArray[Chosen - 1]
                     };
-                    lb_guy3BetLabel.Text = GuyArray[Chosen - 1].MyBet.GetDescription();
+                    GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
                 {
@@ -204,9 +201,9 @@ public partial class BettingParlor : Form
         {
             DogArray[i].TakeStartingPosition();
         }
-        lb_guy1BetLabel.Text = GuyArray[0].MyBet.GetDescription();
-        lb_guy2BetLabel.Text = GuyArray[1].MyBet.GetDescription();
-        lb_guy3BetLabel.Text = GuyArray[2].MyBet.GetDescription();
+        GuyArray[0].UpdateLabels();
+        GuyArray[1].UpdateLabels();
+        GuyArray[2].UpdateLabels();
     }
 
     public void rb_Guy1_CheckedChanged(object sender, EventArgs e)

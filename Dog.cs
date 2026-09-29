@@ -12,7 +12,7 @@ namespace DogsAtTheRaces
         public int StartingPosition;
         public int RacetrackLength;
         public PictureBox MyPictureBox = null;
-        private int Location = 0;    
+        private int Location = 0;
         public Random Randomizer;
 
         public bool Run()
@@ -26,7 +26,7 @@ namespace DogsAtTheRaces
             } 
             else 
             {
-                return false; 
+                return false;
             }
         }
 
