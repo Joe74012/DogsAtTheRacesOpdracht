@@ -36,9 +36,7 @@ namespace DogsAtTheRaces
         }
         public void Collect(int Winner)
         {
-            Cash -= MyBet.Amount;
-            int Bucks = MyBet.PayOut(Winner);
-            Cash += Bucks;
+            Cash += MyBet.PayOut(Winner);
             ClearBet();
             UpdateLabels();
         }
