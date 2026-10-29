@@ -75,44 +75,15 @@ public partial class BettingParlor : Form
     {
         if (CanChange == true)
         {
-            if (Chosen == 1)
+            int moneybet = (int)num_dogNumber.Value;
+            int chosendog = (int)numericUpDown1.Value;
+            if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
             {
-                int moneybet = (int)num_dogNumber.Value;
-                int chosendog = (int)numericUpDown1.Value;
-                if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
-                { 
-                    GuyArray[Chosen - 1].UpdateLabels();
-                }
-                else
-                {
-                    MessageBox.Show("niet genoeg geld!!!");
-                }
+                GuyArray[Chosen - 1].UpdateLabels();
             }
-            else if (Chosen == 2)
+            else
             {
-                int moneybet = (int)num_dogNumber.Value;
-                int chosendog = (int)numericUpDown1.Value;
-                if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
-                {
-                    GuyArray[Chosen - 1].UpdateLabels();
-                }
-                else
-                {
-                    MessageBox.Show("niet genoeg geld!!!");
-                }
-            }
-            else if (Chosen == 3)
-            {
-                int moneybet = (int)num_dogNumber.Value;
-                int chosendog = (int)numericUpDown1.Value;
-                if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
-                {
-                    GuyArray[Chosen - 1].UpdateLabels();
-                }
-                else
-                {
-                    MessageBox.Show("niet genoeg geld!!!");
-                }
+                MessageBox.Show("niet genoeg geld!!!");
             }
         }
     }
