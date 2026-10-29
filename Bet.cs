@@ -12,6 +12,13 @@ namespace DogsAtTheRaces
         public int Dog;
         public Guy Bettor;
 
+        public Bet(int betAmount, int betDog, Guy betBettor)
+        {
+            Amount = betAmount;
+            Dog = betDog;
+            Bettor = betBettor;
+        }
+
         public string GetDescription()
         {
             if (Amount == 0)

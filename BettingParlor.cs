@@ -45,45 +45,9 @@ public partial class BettingParlor : Form
             RacetrackLength = pb_raceTrack.Width - pb_dog4.Width,
             Randomizer = Randomize
         };
-        GuyArray[0] = new Guy()
-        {
-            name = "Joe",
-            Cash = 50,
-            MyRadioButton = rb_Guy1,
-            MyBet = new Bet()
-            {
-                Amount = 0,
-                Dog = 0,
-            },
-            MyLabel = lb_guy1BetLabel
-        };
-        GuyArray[0].MyBet.Bettor = GuyArray[0];
-        GuyArray[1] = new Guy()
-        {
-            name = "Bob",
-            Cash = 75,
-            MyRadioButton = rb_Guy2,
-            MyBet = new Bet()
-            {
-                Amount = 0,
-                Dog = 0,
-            },
-            MyLabel = lb_guy2BetLabel
-        };
-        GuyArray[1].MyBet.Bettor = GuyArray[1];
-        GuyArray[2] = new Guy()
-        {
-            name = "Al",
-            Cash = 45,
-            MyRadioButton = rb_Guy3,
-            MyBet = new Bet()
-            {
-                Amount = 0,
-                Dog = 0,
-            },
-            MyLabel = lb_guy3BetLabel
-        };
-        GuyArray[2].MyBet.Bettor = GuyArray[2];
+        GuyArray[0] = new Guy("Joe", 50, rb_Guy1, lb_guy1BetLabel);
+        GuyArray[1] = new Guy("Bob", 75, rb_Guy2, lb_guy2BetLabel);
+        GuyArray[2] = new Guy("Al", 45, rb_Guy3, lb_guy3BetLabel);
         GuyArray[0].UpdateLabels();
         GuyArray[1].UpdateLabels();
         GuyArray[2].UpdateLabels();
@@ -110,13 +74,6 @@ public partial class BettingParlor : Form
                 if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
                 {
                     HasChosen1 = true;
-
-                    GuyArray[Chosen - 1].MyBet = new Bet()
-                    {
-                        Amount = moneybet,
-                        Dog = chosendog,
-                        Bettor = GuyArray[Chosen - 1]
-                    };
                     GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
@@ -132,13 +89,6 @@ public partial class BettingParlor : Form
                 if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
                 {
                     HasChosen2 = true;
-
-                    GuyArray[Chosen - 1].MyBet = new Bet()
-                    {
-                        Amount = moneybet,
-                        Dog = chosendog,
-                        Bettor = GuyArray[Chosen - 1]
-                    };
                     GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
@@ -154,13 +104,6 @@ public partial class BettingParlor : Form
                 if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
                 {
                     HasChosen3 = true;
-
-                    GuyArray[Chosen - 1].MyBet = new Bet()
-                    {
-                        Amount = moneybet,
-                        Dog = chosendog,
-                        Bettor = GuyArray[Chosen - 1]
-                    };
                     GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
@@ -214,7 +157,7 @@ public partial class BettingParlor : Form
             lb_name.Text = GuyArray[0].name;
         }
     }
-    public void rb_Guy2_CheckedChanged_1(object sender, EventArgs e)
+    public void rb_Guy2_CheckedChanged_1(object sender, EventArgs e)    
     {
         if (rb_Guy2.Checked)
         {
