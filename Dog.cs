@@ -9,15 +9,23 @@ namespace DogsAtTheRaces
 {
     public class Dog
     {
-        public int StartingPosition;
-        public int RacetrackLength;
-        public PictureBox MyPictureBox = null;
-        public int Location = 0;    
-        public Random Randomizer;
+        private int StartingPosition;
+        private int RacetrackLength;
+        private PictureBox MyPictureBox;
+        private int Location = 0;
+        private Random Randomizer;
+
+        public Dog(PictureBox dogPictureBox, int raceTrackWidth, Random dogRandomizer)
+        {
+            MyPictureBox = dogPictureBox;
+            StartingPosition = dogPictureBox.Left;
+            RacetrackLength = raceTrackWidth - dogPictureBox.Width;
+            Randomizer = dogRandomizer;
+        }
 
         public bool Run()
         {
-            int Number = Randomizer.Next(0, 4);
+            int Number = Randomizer.Next(0, 12);
             Location += Number;
             MyPictureBox.Left = StartingPosition + Location;
             if (Location >= RacetrackLength)
@@ -26,7 +34,7 @@ namespace DogsAtTheRaces
             } 
             else 
             {
-                return false; 
+                return false;
             }
         }
 
