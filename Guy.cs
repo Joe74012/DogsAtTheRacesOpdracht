@@ -15,6 +15,7 @@ namespace DogsAtTheRaces
         public int Cash;
         public RadioButton MyRadioButton;
         public Label MyLabel;
+        public bool HasChosen = false;
 
         public Guy(string guyName, int guyCash, RadioButton guyRadioButton, Label guyLabel)
         {
@@ -42,6 +43,7 @@ namespace DogsAtTheRaces
                 Cash -= BetAmount;
                 MyBet = new Bet(BetAmount, DogToWin, this);
                 UpdateLabels();
+                HasChosen = true;
                 return true;
             } else
             {
@@ -53,6 +55,7 @@ namespace DogsAtTheRaces
         {
             Cash += MyBet.Amount;
             Cash += MyBet.PayOut(Winner);
+            HasChosen = false;
             ClearBet();
             UpdateLabels();
         }

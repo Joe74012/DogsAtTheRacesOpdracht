@@ -9,9 +9,6 @@ public partial class BettingParlor : Form
     public Guy[] GuyArray = new Guy[3];
     public Random Randomize = new Random();
     public int Chosen = 1;
-    public bool HasChosen1 = false;
-    public bool HasChosen2 = false;
-    public bool HasChosen3 = false;
     public bool CanChange = true;
 
     public BettingParlor()
@@ -54,12 +51,22 @@ public partial class BettingParlor : Form
     }
     private void bt_race_Click(object sender, EventArgs e)
     {
-        if (HasChosen1 && HasChosen2 && HasChosen3 && CanChange == true) {
+        bool iedereenGewed = true;
+        for (int i = 0; i < GuyArray.Length; i++)
+        {
+            if (GuyArray[i].HasChosen == false)
+            {
+                iedereenGewed = false;
+            }
+        }
+        if (iedereenGewed == true && CanChange == true)
+        {
             CanChange = false;
             t_raceTimer.Start();
-        } else
+        }
+        else
         {
-            MessageBox.Show("Nog niet iedereen heeft gewet!!!");
+            MessageBox.Show("Nog niet iedereen heeft gewed!!!");
         }
     }
 
@@ -72,13 +79,11 @@ public partial class BettingParlor : Form
                 int moneybet = (int)num_dogNumber.Value;
                 int chosendog = (int)numericUpDown1.Value;
                 if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
-                {
-                    HasChosen1 = true;
+                { 
                     GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
                 {
-                    HasChosen1 = false;
                     MessageBox.Show("niet genoeg geld!!!");
                 }
             }
@@ -88,12 +93,10 @@ public partial class BettingParlor : Form
                 int chosendog = (int)numericUpDown1.Value;
                 if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
                 {
-                    HasChosen2 = true;
                     GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
                 {
-                    HasChosen2 = false;
                     MessageBox.Show("niet genoeg geld!!!");
                 }
             }
@@ -103,12 +106,10 @@ public partial class BettingParlor : Form
                 int chosendog = (int)numericUpDown1.Value;
                 if (GuyArray[Chosen - 1].PlaceBet(moneybet, chosendog))
                 {
-                    HasChosen3 = true;
                     GuyArray[Chosen - 1].UpdateLabels();
                 }
                 else
                 {
-                    HasChosen3 = false;
                     MessageBox.Show("niet genoeg geld!!!");
                 }
             }
@@ -132,9 +133,6 @@ public partial class BettingParlor : Form
     public void Reset(int Winner)
     {
         CanChange = true;
-        HasChosen1 = false;
-        HasChosen2 = false;
-        HasChosen3 = false;
         for (int i = 0; i < GuyArray.Length; i++)
         {
             GuyArray[i].Collect(Winner);
