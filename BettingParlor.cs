@@ -143,9 +143,6 @@ public partial class BettingParlor : Form
         {
             DogArray[i].TakeStartingPosition();
         }
-        GuyArray[0].UpdateLabels();
-        GuyArray[1].UpdateLabels();
-        GuyArray[2].UpdateLabels();
     }
 
     public void rb_Guy1_CheckedChanged(object sender, EventArgs e)
