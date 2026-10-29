@@ -14,34 +14,10 @@ public partial class BettingParlor : Form
     public BettingParlor()
     {
         InitializeComponent();
-        DogArray[0] = new Dog()
-        {
-            MyPictureBox = pb_dog1,
-            StartingPosition = pb_dog1.Left,
-            RacetrackLength = pb_raceTrack.Width - pb_dog1.Width,
-            Randomizer = Randomize
-        };
-        DogArray[1] = new Dog()
-        {
-            MyPictureBox = pb_dog2,
-            StartingPosition = pb_dog2.Left,
-            RacetrackLength = pb_raceTrack.Width - pb_dog2.Width,
-            Randomizer = Randomize
-        };
-        DogArray[2] = new Dog()
-        {
-            MyPictureBox = pb_dog3,
-            StartingPosition = pb_dog3.Left,
-            RacetrackLength = pb_raceTrack.Width - pb_dog3.Width,
-            Randomizer = Randomize
-        };
-        DogArray[3] = new Dog()
-        {
-            MyPictureBox = pb_dog4,
-            StartingPosition = pb_dog4.Left,
-            RacetrackLength = pb_raceTrack.Width - pb_dog4.Width,
-            Randomizer = Randomize
-        };
+        DogArray[0] = new Dog(pb_dog1, pb_raceTrack.Width, Randomize);
+        DogArray[1] = new Dog(pb_dog2, pb_raceTrack.Width, Randomize);
+        DogArray[2] = new Dog(pb_dog3, pb_raceTrack.Width, Randomize);
+        DogArray[3] = new Dog(pb_dog4, pb_raceTrack.Width, Randomize);
         GuyArray[0] = new Guy("Joe", 50, rb_Guy1, lb_guy1BetLabel);
         GuyArray[1] = new Guy("Bob", 75, rb_Guy2, lb_guy2BetLabel);
         GuyArray[2] = new Guy("Al", 45, rb_Guy3, lb_guy3BetLabel);
