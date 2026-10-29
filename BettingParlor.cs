@@ -45,9 +45,10 @@ public partial class BettingParlor : Form
         GuyArray[0] = new Guy("Joe", 50, rb_Guy1, lb_guy1BetLabel);
         GuyArray[1] = new Guy("Bob", 75, rb_Guy2, lb_guy2BetLabel);
         GuyArray[2] = new Guy("Al", 45, rb_Guy3, lb_guy3BetLabel);
-        GuyArray[0].UpdateLabels();
-        GuyArray[1].UpdateLabels();
-        GuyArray[2].UpdateLabels();
+        for (int i = 0; i < GuyArray.Length; i++)
+        {
+            GuyArray[i].UpdateLabels();
+        }
     }
     private void bt_race_Click(object sender, EventArgs e)
     {
